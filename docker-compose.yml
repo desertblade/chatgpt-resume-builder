@@ -1,6 +1,8 @@
 version: "3.7"
 services:
   chatgpt-resume-builder:
+    container_name: chatgpt-resume-builder
     build: .
+    restart: always
     ports:
       - 7860:7860
