@@ -76,7 +76,7 @@ class Chatgpt:
         try:
             return ast.literal_eval(json_string)
         except Exception:
-            logging.error("Error in parsing JSON string")
+            logging.error(f"Error in parsing JSON string")
 
         json_string = re.sub('\s+', ' ', json_string)
         json_string = re.sub('"', "'", json_string)
