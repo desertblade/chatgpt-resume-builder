@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Dict
 
 import requests
-from revChatGPT.revChatGPT import Chatbot
+from revChatGPT import Chatbot
 
 from src.chatbot.prompts import get_prompt, data_format
 
