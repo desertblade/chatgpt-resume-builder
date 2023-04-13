@@ -72,7 +72,7 @@ class Chatgpt:
         return answer
 
     def parse_json_from_string(self, json_string):
-
+        logging.info("Json: {json_string}")
         try:
             return ast.literal_eval(json_string)
         except Exception:
