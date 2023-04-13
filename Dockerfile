@@ -1,5 +1,5 @@
 # Use Python 3.8 image as the base image
-FROM python:3.8-buster
+FROM python:3.9-buster
 
 # Install the necessary dependencies
 RUN apt-get update && apt-get install -y wget
