@@ -25,6 +25,11 @@ Check out the demo of this project on [Hugging Face Spaces](https://huggingface.
 To use Resume Builder, you will need to have an OpenAI API Key, which can be obtained from [here](https://platform.openai.com/account/api-keys).
 
 ## Running the app
+
+Create .env file with:
+`API_KEY=XXXXXXXXXXXXXXXXXXXXX`
+
+
 `streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableXsrfProtection=false`
 
 A Dockerfile is provided for convenience.

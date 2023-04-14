@@ -1,4 +1,8 @@
 import streamlit as st
+import logging
+from dotenv import load_dotenv
+import os
+load_dotenv('.env')
 
 from src.chatbot.chatgpt import openai_key_info, Chatgpt
 from src.chatbot.prompts import data_format
@@ -6,11 +10,13 @@ from src.data_handler import improve_resume, init_resume, download_pdf, update_r
 from src.exceptions import ChatbotInitException
 from src.utils import is_new_file, is_data_loaded, key_to_tab_name, get_item_key, init_user_info
 
+# Pulling in API Key
+API_KEY = os.environ.get("API_KEY")
+
 section_examples = {'summary': 'I have passion for new tech',
                     'workExperience': 'Tell about my ability to lead projects',
                     'education': 'Describe my degree type in more details',
                     'contactInfo': 'phone, Linkedin, etc.'}
-
 
 def title():
     st.title("ChatCV - AI Resume Builder")
@@ -76,29 +82,34 @@ def body():
         with tab:
             section_func(key, st.session_state['resume_data'][key])
 
+def validate_api_key(api_key):
+    if Chatgpt.validate_api(api_key):
+        try:
+            st.session_state['chatbot'] = Chatgpt(api_key)
+        except ChatbotInitException:
+            st.session_state['user_info'] = init_user_info(error_info,"Error with Chatbot loading, please refresh...")
+
+        st.experimental_rerun()
+
+    else:
+        st.error("Not valid API key - try again...")
 
 def init_chatbot():
-    cols = st.columns([6, 1, 1])
-    api_key = cols[0].text_input("Enter OpenAI API key")
-    cols[1].markdown("#")
-    api_submit = cols[1].button("Submit")
+    if ( API_KEY is not None ) :
+        logging.info(f"API_KEY: {API_KEY}")
+        validate_api_key(API_KEY)
+    else:
+        cols = st.columns([6, 1, 1])
+        api_key = cols[0].text_input("Enter OpenAI API key")
+        cols[1].markdown("#")
+        api_submit = cols[1].button("Submit")
 
-    cols[2].markdown("#")
-    get_info = cols[2].button("Get key")
-    if get_info:
-        st.info(f"Get your key at: {openai_key_info}")
-    if api_submit:
-        if Chatgpt.validate_api(api_key):
-            try:
-                st.session_state['chatbot'] = Chatgpt(api_key)
-            except ChatbotInitException:
-                st.session_state['user_info'] = init_user_info(error_info,
-                                                               "Error with Chatbot loadin, please refresh...")
-
-            st.experimental_rerun()
-
-        else:
-            st.error("Not valid API key - try again...")
+        cols[2].markdown("#")
+        get_info = cols[2].button("Get key")
+        if get_info:
+            st.info(f"Get your key at: {openai_key_info}")
+        if api_submit:
+            validate_api_key(api_key)
 
 
 def summary_section(section_name, summary_data):
