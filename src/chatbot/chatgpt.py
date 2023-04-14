@@ -64,15 +64,16 @@ class Chatgpt:
         logging.info("Asking chatbot for response")
         try:
             response = self.chatbot.ask(chatgpt_input)
-            answer = response['choices'][0]['text']
-            logging.info("Received response from chatbot")
-            logging.info(f"Response: {answer}")
+            logging.info(f"Response: {response}")
+            # TODO: This is no longer needed???
+            # answer = response['choices'][0]['text']
+            # logging.info("Received response from chatbot")
+            # logging.info(f"Answer: {answer}")
         except Exception:
-            answer = ""
-        return answer
+            response = ""
+        return response
 
     def parse_json_from_string(self, json_string):
-        logging.info("Json: {json_string}")
         try:
             return ast.literal_eval(json_string)
         except Exception:
