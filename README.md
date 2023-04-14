@@ -1,5 +1,7 @@
 # ChatCV - Resume Builder with OpenAI ChatGPT
 
+## This is a working Clone of the orginal. It is a work in Progress!!!
+
 This code uses the OpenAI ChatGPT model to enhance resumes. It functions as a professional resume builder, taking in a PDF resume, processing it, and sending it to the chatbot for improvement. The improved resume can be downloaded.
 
 Check out the demo of this project on [Hugging Face Spaces](https://huggingface.co/spaces/ofikodar/chatcv-resume-builder).
