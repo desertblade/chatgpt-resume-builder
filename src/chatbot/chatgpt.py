@@ -28,21 +28,22 @@ class Chatgpt:
             return response.status_code == 200
         return False
 
-    @staticmethod
-    def load_api_key(config_path):
-        """
-        Load api key from config.json
+# TODO: Not Used?
+    # @staticmethod
+    # def load_api_key(config_path):
+    #     """
+    #     Load api key from config.json
 
-        Returns:
-            Str: session token
-        """
-        config_file = Path(config_path)
-        if not config_file.is_file():
-            raise FileNotFoundError(f"config.json not found at {config_file.resolve()}")
+    #     Returns:
+    #         Str: session token
+    #     """
+    #     config_file = Path(config_path)
+    #     if not config_file.is_file():
+    #         raise FileNotFoundError(f"config.json not found at {config_file.resolve()}")
 
-        with open(config_file, 'r') as j_file:
-            session_token = json.load(j_file)
-        return session_token['api_key']
+    #     with open(config_file, 'r') as j_file:
+    #         session_token = json.load(j_file)
+    #     return session_token['api_key']
 
     def improve_resume(self, parsed_resume: str) -> Dict:
         logging.info("Improving parsed resume")

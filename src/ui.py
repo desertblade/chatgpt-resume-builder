@@ -171,6 +171,9 @@ def recruiter_subsection(section_name, section_example, item_id=0):
             user_request = '' if trigger_key in user_request else user_request
             section_key = get_item_key(section_name, item_id)
             section_text = st.session_state[section_key]
+            # Need UL formated list formating for Resume Descriptions
+            # if ("description" and "workExperience") in section_key:
+            #     user_request += " Return HTML Formated UL List"
             new_section_text = st.session_state['chatbot'].improve_section(section_text, user_request)
 
             update_resume_data(new_section_text, section_name, item_id)

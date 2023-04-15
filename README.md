@@ -28,9 +28,11 @@ To use Resume Builder, you will need to have an OpenAI API Key, which can be obt
 
 ## Running the app
 
-Create .env file with:
+Create .env file (Optional):
 `API_KEY=XXXXXXXXXXXXXXXXXXXXX`
 
+Install Python and Requirements:
+`pip install -r requirements.txt`
 
 `streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableXsrfProtection=false`
 

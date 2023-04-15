@@ -1,244 +1,131 @@
-
-
-
-
 @page {
-  size: A4 portrait;
-
-}
-@media print {
-  header, footer {
-    display: none;
+    size: A4 portrait;
+  
   }
-}
-*, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
- }
+  @media print {
+    header, footer {
+      display: none;
+    }
+  }
+  *, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+   }
+  
+  html
+  {
+  
+      font-size:100%;
+  }
 
-html
-{
 
-	font-size:100%;
-}
-
-
-body
-{
-  	font-family:Open Sans, sans-serif;
-
-    top: 0px;
-	-webkit-font-smoothing:antialiased;
-	font-family:Lora, serif;
-	font-size:18px;
-	font-weight:500;
-	line-height:1.4;
-	text-rendering:optimizeLegibility;
+body {
+    margin: 40px;
+    font-family: "Adobe Caslon Pro", "Minion Pro", serif;
+    font-size: 12pt;
 }
 
-.parent
-{
+header {
+    font-family: "Trajan Pro", serif;
+    padding-bottom: 10px;
 }
 
-.skill-set li:hover
-{
-	background:#3498db;
+header h1 {
+    font-size: 20pt;
+    letter-spacing: 2pt;
+    border-bottom: 1px solid black;
+    margin-bottom: 4px;
 }
 
-h1
-{
-color: #145DA0;
+header span {
+    font-size: 10pt;
+    float: right;
 }
 
-.wrapper
-{
-	height:100%;
+section h2 {
+    font-family: "Trajan Pro", serif;
+    font-size: 14pt;
 }
 
-
-
-
-.left
-{
-    	font-family:Open Sans, sans-serif;
-
-left: 0px;
-	height:100%;
-	margin-left:-1px;
-	min-width:256px;
-	width:70%;
-    float:left;
+section p {
+    margin-left: 40px;
 }
 
-.right
-{
-    	font-family:Open Sans, sans-serif;
-
-right: 0px;
-position: absolute;
-	text-align:center;
-	background-color:rgba(0, 0, 0,0.1);
-	border-left:1px solid rgba(0,0,0,.1);
-
-	height:100%;
-	width:30%;
-	padding-left: 30px;
-  padding-top: 70px;
-
+section.coverletter {
+    margin-top: 20px;
 }
 
-.right h1
-{
-
-color: #145DA0;
+section.coverletter p {
+    margin-left: 0px;
 }
 
-.right h2
-{
-
-color: #145DA0;
+section ul {
+    list-style-type: circle;
 }
 
-
-
-.right p
-{
-color: #145DA0;
+.jobtable {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-left: 20px;
 }
 
-.left p
-{
-color: #145DA0;
+.edtable {
+    display: table;
+    width: 100%;
+    margin-left: 20px;
+    padding-bottom: 15px;
 }
 
-
-.name-hero
-{
-	background:rgba(0,0,0,.001);
-	margin:0px 1px 0 0;
-
-	width:85%;
+.skillstable {
+    display: table;
+    width: 100%;
 }
 
-
-.name-hero h1
-{
-	font-family:Open Sans, sans-serif;
-	font-size:1.5em;
-	text-align:center;
+.table {
+    display: table;
+    margin-left: 20px;
 }
 
-.name-hero h2
-{
-	font-family:Open Sans, sans-serif;
-	font-size:1.5em;
-	text-align:center;
+.tablerow {
+    display: table-row;
 }
 
-.name-hero h3
-{
-	font-family:Open Sans, sans-serif;
-
-	font-size:1.5em;
-	text-align:center;
-	margin:0px auto;
-   padding-top: -50 px;
+.jobtitle {
+    display: table-cell;
+    font-style: italic;
 }
 
-
-.title h3
-{
-	font-family:Open Sans, sans-serif;
-
-	font-size:1.5em;
-	text-align:center;
-	margin:0px auto;
-   color:rgba(128, 128, 128,0.5);
-   padding-top: -50 px;
+.right {
+    display: table-cell;
+    text-align: right;
 }
 
-.name-hero title
-{
-	font-family:Open Sans, sans-serif;
-
-	font-size:1.5em;
-	text-align:center;
-	margin:0px auto;
-   color:rgba(128, 128, 128,0.5);
-   padding-top: -0 px;
+.cell {
+    display: table-cell;
 }
 
-.name-hero h1 em
-{
-	color:rgba(0,0,0,1);
-	font-style:normal;
-	font-weight:700;
+.onlinecell {
+    font-style: italic;
+    padding-right: 10px;
 }
 
-.name-hero p
-{
-    font-family:Open Sans, sans-serif;
-	color:rgba(0,0,0,1);
-	font-size:.75em;
-	line-height:1.5;
-	margin:0 8px 0 0;
-	text-align:center;
+.urlcell {
+    display: table-cell;
+    letter-spacing: 1px;
 }
 
-.name-hero .name-text
-{
-    font-size:1.5em;
-	margin:0 auto;
-	color: #145DA0;
-
-	width:85%;
+.pagebreak {
+    page-break-before: always;
 }
 
-
-
-.inner
-{
-	margin:0 auto;
-	max-width:975px;
-	padding:0em;
-}
-
-.inner h1
-{
-	font-size:1.75em;
-}
-
-.inner p
-{
-	color:rgba(0,0,0,1);
-}
-
-.inner p em
-{
-color: #145DA0;
-	font-style:normal;
-}
-
-.inner section
-{
-	margin:1px auto;
-}
-
-ul
-{
-	list-style-type:none;
-	margin-top:0 px;
-	max-width:570px;
-	padding:1;
-}
-
-.skill-set
-{
-  	font-family:Open Sans, sans-serif;
-
-	color:rgba(0,0,0,1);
-	list-style:none;
-	margin:1px 1px 0 0;
-	padding:10px;
-	text-align:justify;
-}
-
+@media screen {
+    div.divFooter {
+      display: none;
+    }
+  }
+  @media print {
+    div.divFooter {
+      position: fixed;
+      bottom: 0;
+    }
+  }
