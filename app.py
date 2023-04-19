@@ -1,7 +1,6 @@
 from src.ui import *
 from src.utils import is_chatbot_loaded
 
-
 def main():
     title()
     if is_chatbot_loaded():

@@ -28,7 +28,7 @@ class Chatgpt:
             return response.status_code == 200
         return False
 
-# TODO: Not Used?
+# TODO: Not Needed?
     # @staticmethod
     # def load_api_key(config_path):
     #     """
@@ -64,6 +64,7 @@ class Chatgpt:
     def _ask(self, chatgpt_input):
         logging.info("Asking chatbot for response")
         try:
+            logging.info(f"input: {chatgpt_input}")
             response = self.chatbot.ask(chatgpt_input)
             logging.info(f"Response: {response}")
             # TODO: This is no longer needed???

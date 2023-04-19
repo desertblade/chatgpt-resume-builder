@@ -13,10 +13,18 @@ from src.utils import is_new_file, is_data_loaded, key_to_tab_name, get_item_key
 # Pulling in API Key
 API_KEY = os.environ.get("API_KEY")
 
-section_examples = {'summary': 'I have passion for new tech',
-                    'workExperience': 'Tell about my ability to lead projects',
+# TODO: Delete at some point
+# section_examples = {'summary': 'I have passion for new tech',
+#                     'workExperience': 'Tell about my ability to lead projects',
+#                     'education': 'Describe my degree type in more details',
+#                     'contactInfo': 'phone, Linkedin, etc.'}
+
+section_examples = {'summary': 'Re-write as professionally as possible, adding vital, valuable information and skills',
+                    'workExperience': 'Update this work experience for my resume to make it sound more actionable.',
                     'education': 'Describe my degree type in more details',
                     'contactInfo': 'phone, Linkedin, etc.'}
+
+
 
 def title():
     st.title("ChatCV - AI Resume Builder")
@@ -61,7 +69,9 @@ def upload(uploaded_file):
 
 
 def sidebar():
+
     with st.sidebar:
+        st.button("Start From Scratch", key=None, help=None, on_click=upload(''))
         uploaded_file = st.file_uploader('Upload PDF Resume', type=["PDF"])
         if uploaded_file and is_new_file(uploaded_file):
             upload(uploaded_file)
@@ -162,13 +172,13 @@ def recruiter_subsection(section_name, section_example, item_id=0):
         cols[0].write('\n')
         cols[0].write('\n')
         button_clicked = cols[0].button("Auto Section Improve", key=f'{section_name}_{item_id}_improve_auto')
-        trigger_key = 'Add a special request'
-        user_request_template = f"{trigger_key} to the bot here... e.g. {section_example}."
+        # trigger_key = 'Add a special request'
+        user_request_template = f"{section_example}"
 
-        user_request = cols[1].text_input("section_example", value=user_request_template,
-                                          key=f'{section_name}_{item_id}_improve_manual', label_visibility='hidden')
+        user_request = cols[1].text_area("ChatGPT Prompt", value=user_request_template,
+                                          key=f'{section_name}_{item_id}_improve_manual')
         if button_clicked:
-            user_request = '' if trigger_key in user_request else user_request
+            # user_request = '' if trigger_key in user_request else user_request
             section_key = get_item_key(section_name, item_id)
             section_text = st.session_state[section_key]
             # Need UL formated list formating for Resume Descriptions

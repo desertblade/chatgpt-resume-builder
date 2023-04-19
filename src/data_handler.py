@@ -60,9 +60,10 @@ def format_resume_data():
 
     resume_data['summary'] = current_state.get('summary', '')
 
-    work_experience_keys = ['workExperience_{}_title', 'workExperience_{}_company',
+    work_experience_keys = ['workExperience_{}_title', 'workExperience_{}_company','workExperience_{}_city',
                             'workExperience_{}_dates', 'workExperience_{}_description']
-    education_keys = ['education_{}_degree', 'education_{}_school', 'education_{}_dates', 'education_{}_description']
+    education_keys = ['education_{}_degree', 'education_{}_school', 'education_{}_dates', 
+                      'education_{}_city', 'education_{}_description']
 
     total_work_experience = count_entries(st.session_state, 'workExperience')
     total_education = count_entries(st.session_state, 'education')
